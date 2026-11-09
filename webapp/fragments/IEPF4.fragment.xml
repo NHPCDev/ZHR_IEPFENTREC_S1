@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    class="sapUiSizeCompact"
+>
+    <Table
+        id="idIEPF4Table"
+        items="{viewModel>/IEPF4}"
+        growing="true"
+        growingThreshold="20"
+        width="100%"
+        mode="MultiSelect"
+        autoPopinMode="true"
+        alternateRowColors="true"
+        sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+        updateFinished="onIEPF4UpdateFinish"
+    >
+        <headerToolbar>
+            <OverflowToolbar>
+                <Title
+                    id="idIEPF4Title"
+                    text="{i18n>IEPF4}"
+                />
+                <ToolbarSpacer />
+            </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column>
+                <Text text="{i18n>sno}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>financialYear}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>amount}" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem
+                type="Inactive"
+                press="onListItemPress"
+            >
+                <cells>
+                    <Text text="{viewModel>Sno}" />
+                    <Text text="{viewModel>FinancialYear}" />
+                    <Text text="{viewModel>Amount}" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

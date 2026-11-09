@@ -1,0 +1,73 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    class="sapUiSizeCompact"
+>
+    <Dialog
+        id="idCreateDialog"
+        title="{i18n>createDialogTitle}"
+        draggable="false"
+        titleAlignment="Center"
+        class="sapUiSizeCompact"
+        contentWidth="25rem"
+    >
+        <content>
+            <VBox >
+                <f:SimpleForm layout="ColumnLayout">
+                    <f:content>
+                        <Label 
+                            text="{i18n>dpId}"
+                            required="true"
+                        ></Label>
+                        <ComboBox 
+                            change="onComboboxChange"
+                            selectedItem="{viewModel>/DPID}"
+                            selectedKey="{viewModel>/DPID}"
+                            items="{path: '/ZHCM_IEPF_CDS_FINYEAR_F4H'}"
+                            valueState="{viewModel>/valueState/finYear}"
+                            valueStateText="{viewModel>/valueStateText/finYear}"
+                        >
+                            <core:ListItem
+                                key="{finyear}"
+                                text="{finyear}"
+                            />
+                        </ComboBox>
+                        <Label 
+                            text="{i18n>clientID}"
+                            required="true"
+                        ></Label>
+                        <ComboBox 
+                            change="onComboboxChange"
+                            selectedItem="{viewModel>/ClientID}"
+                            selectedKey="{viewModel>/ClientID}"
+                            items="{path: '/ZHCM_IEPF_CDS_FINYEAR_F4H'}"
+                            valueState="{viewModel>/valueState/ClientID}"
+                            valueStateText="{viewModel>/valueStateText/ClientID}"
+                        >
+                            <core:ListItem
+                                key="{finyear}"
+                                text="{finyear}"
+                            />
+                        </ComboBox>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+        <beginButton>
+            <Button
+                text="{i18n>okBtnText}"
+                press="onIDSelect"
+                type="Emphasized"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                text="{i18n>cancelbtnText}"
+                press="onCloseDialog"
+                type="Transparent"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
